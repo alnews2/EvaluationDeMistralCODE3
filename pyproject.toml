@@ -65,8 +65,6 @@ select = [
     "SLF", # accès aux membres privés (tests → noqa SLF001 justifié)
     "RUF", # ruff-specific (dont RUF100 : noqa inutile = erreur)
 ]
-
-[tool.ruff.lint.flake8-builtins]
 # RUF001/002 : les glyphes ×, −, ⌫ sont des caractères d'affichage volontaires
 # (pavé de la calculatrice), pas des confusions accidentelles.
 allowed-confusables = ["×", "−", "⌫"]
