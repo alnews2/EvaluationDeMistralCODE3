@@ -205,8 +205,7 @@ class MainWindow(QMainWindow):
     # ------------------------------------------------------------- clavier
 
     def keyPressEvent(self, event: QKeyEvent) -> None:  # noqa: N802 (API Qt)
-        text = event.text()
-        mapping = {
+        mapping: dict[Qt.Key, str] = {
             Qt.Key.Key_Return: "=",
             Qt.Key.Key_Enter: "=",
             Qt.Key.Key_Escape: "C",
@@ -216,7 +215,11 @@ class MainWindow(QMainWindow):
             Qt.Key.Key_Minus: "−",
             Qt.Key.Key_Plus: "+",
         }
-        key = mapping.get(event.key(), text if text in _DIGITS else None)
+        key: str | None = mapping.get(Qt.Key(event.key()))
+        if key is None:
+            text = event.text()
+            if text in _DIGITS:
+                key = text
         if key is not None:
             self._on_key(key)
         else:
