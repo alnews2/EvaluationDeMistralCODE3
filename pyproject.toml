@@ -89,3 +89,6 @@ qt_api = "pyside6"
 [tool.coverage.run]
 branch = true
 source = ["src/calculator"]
+# Le point d'entrée est du glue code (instanciation QApplication + app.exec)
+# non testable unitairement sans mocker la boucle d'événements Qt.
+omit = ["src/calculator/__main__.py"]
