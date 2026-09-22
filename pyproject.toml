@@ -66,6 +66,11 @@ select = [
     "RUF", # ruff-specific (dont RUF100 : noqa inutile = erreur)
 ]
 
+[tool.ruff.lint.flake8-builtins]
+# RUF001/002 : les glyphes ×, −, ⌫ sont des caractères d'affichage volontaires
+# (pavé de la calculatrice), pas des confusions accidentelles.
+allowed-confusables = ["×", "−", "⌫"]
+
 [tool.ruff.format]
 quote-style = "double"
 
