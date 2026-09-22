@@ -61,7 +61,9 @@ select = [
     "UP",  # pyupgrade
     "B",   # bugbear
     "SIM", # simplify
-    "RUF", # ruff-specific
+    "N",   # pep8-naming (API Qt : keyPressEvent → noqa N802 justifié)
+    "SLF", # accès aux membres privés (tests → noqa SLF001 justifié)
+    "RUF", # ruff-specific (dont RUF100 : noqa inutile = erreur)
 ]
 
 [tool.ruff.format]
